@@ -9,7 +9,7 @@ languageCode = "ru"
 defaultContentLanguage = "ru"
 
 
-ignoreFiles=["themes/blowfish/exampleSite/*"]
+ignoreFiles=["themes/blowfish/exampleSite/**"]
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
