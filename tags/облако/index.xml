@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Облако on E-blog</title>
+    <link>//localhost:1313/tags/%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%BE/</link>
+    <description>Recent content in Облако on E-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    
+    <lastBuildDate>Mon, 03 Jun 2024 04:04:16 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Облако не приговор (часть 1)</title>
+      <link>//localhost:1313/posts/greeting/</link>
+      <pubDate>Mon, 03 Jun 2024 04:04:16 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/greeting/</guid>
+      <description>Disclaimer</description>
+      
+    </item>
+    
+  </channel>
+</rss>

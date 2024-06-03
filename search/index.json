@@ -1,0 +1,13 @@
+
+{
+    
+    
+    
+    
+        
+        
+        
+    
+    "pages": [{"date":"2023-12-06","image":"","imageAlt":"","link":"http://localhost:1313/post/greeting/","summary":" 199 200 201 202 203 204 205 206 207 208 209 210 void loop(){ if (WiFi.status() == WL_CONNECTED) { webSocketClient.poll(); } else{ if (serverStarted) server.handleClient(); else{ tryConnectToWifi(); } } } ","tags":["блог","хабр"],"text":" 199 200 201 202 203 204 205 206 207 208 209 210 void loop(){ if (wifi.status() == wl_connected) { websocketclient.poll(); } else{ if (serverstarted) server.handleclient(); else{ tryconnecttowifi(); } } } ","title":"Привет, хабр!"}]
+}
+
