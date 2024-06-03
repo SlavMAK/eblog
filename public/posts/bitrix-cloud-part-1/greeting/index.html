@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="ru" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Облако не приговор (часть 1) &middot; E-blog</title>
+  <meta name="title" content="Облако не приговор (часть 1) &middot; E-blog" />
+  
+  
+  <meta name="keywords" content="bitrix24, облако, эксперементы, esp, " />
+  
+  
+  <link rel="canonical" href="//localhost:1313/posts/bitrix-cloud-part-1/greeting/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.2dfc192ab47c6a1258b5791802da7f14bfa9483cd5db2e14262d3b48cb820f5b936d0be3aa04d6f82a17e5e7b50a80db790ecc62fb3c3578411f10a41f472687.css"
+    integrity="sha512-LfwZKrR8ahJYtXkYAtp/FL&#43;pSDzV2y4UJi07SMuCD1uTbQvjqgTW&#43;CoX5ee1CoDbeQ7MYvs8NXhBHxCkH0cmhw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.d6c35110b5d7df8014403fbb81cd21a9d89daf9eb586c936e585e9d04adc204dce554aa737f81e8c902b9dea9e67bd63a977b77dedefb8a39430581ebc519207.js"
+    integrity="sha512-1sNRELXX34AUQD&#43;7gc0hqdidr561hsk25YXp0ErcIE3OVUqnN/gejJArneqeZ71jqXe3fe3vuKOUMFgevFGSBw==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="//localhost:1313/posts/bitrix-cloud-part-1/greeting/">
+  <meta property="og:site_name" content="E-blog">
+  <meta property="og:title" content="Облако не приговор (часть 1)">
+  <meta property="og:description" content="Disclaimer # Описанное ниже, не является руководством к действию, не испытано на практике и по сути является лишь демонстрацией возможностей облачных порталов Bitrix24.
+Этот проект задумывался ещё когда порталы Bitrix24 с бесплатным тарифом позволяли использовать REST api.
+Идея # Задумка следующая. В bitrix24 есть механизм PushAndPull (по сути это обычный websocket).">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-03T04:04:16+00:00">
+    <meta property="article:modified_time" content="2024-06-03T04:04:16+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Облако не приговор (часть 1)">
+  <meta name="twitter:description" content="Disclaimer # Описанное ниже, не является руководством к действию, не испытано на практике и по сути является лишь демонстрацией возможностей облачных порталов Bitrix24.
+Этот проект задумывался ещё когда порталы Bitrix24 с бесплатным тарифом позволяли использовать REST api.
+Идея # Задумка следующая. В bitrix24 есть механизм PushAndPull (по сути это обычный websocket).">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Посты",
+    "name": "Облако не приговор (часть 1)",
+    "headline": "Облако не приговор (часть 1)",
+    
+    "abstract": "Disclaimer # Описанное ниже, не является руководством к действию, не испытано на практике и по сути является лишь демонстрацией возможностей облачных порталов Bitrix24.\nЭтот проект задумывался ещё когда порталы Bitrix24 с бесплатным тарифом позволяли использовать REST api.\nИдея # Задумка следующая. В bitrix24 есть механизм PushAndPull (по сути это обычный websocket).",
+    "inLanguage": "ru",
+    "url" : "\/\/localhost:1313\/posts\/bitrix-cloud-part-1\/greeting\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Muxaujl"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-03T04:04:16\u002b00:00",
+    "datePublished": "2024-06-03T04:04:16\u002b00:00",
+    
+    "dateModified": "2024-06-03T04:04:16\u002b00:00",
+    
+    "keywords": ["bitrix24","облако","эксперементы","esp"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1053"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Muxaujl" />
+  
+  
+  
+  <link href="https://t.me/mak2486" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Перейти к основному содержимому</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">E-blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Welcome to elektronnyj bloG! 🎉</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Посты</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/bitrix-cloud-part-1/greeting/"
+      >Облако не приговор (часть 1)</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Облако не приговор (часть 1)
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-06-03 04:04:16.147 &#43;0000 UTC">3 июня 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1053 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">5 минут</span>
+  
+
+  
+  
+  <span class="pl-2"><span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Черновик
+  </span>
+</span></span>
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Оглавление
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#идея">Идея</a></li>
+    <li><a href="#нам-понадобится">Нам понадобится:</a></li>
+    <li><a href="#код">Код</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Оглавление
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#идея">Идея</a></li>
+    <li><a href="#нам-понадобится">Нам понадобится:</a></li>
+    <li><a href="#код">Код</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">Disclaimer 
+    <div id="disclaimer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#disclaimer" aria-label="Якорь">#</a>
+    </span>        
+    
+</h2>
+<p>Описанное ниже, не является руководством к действию, не испытано на практике и по сути является лишь демонстрацией возможностей облачных порталов Bitrix24.</p>
+<p>Этот проект задумывался ещё когда порталы Bitrix24 с бесплатным тарифом позволяли использовать REST api.</p>
+
+
+<h2 class="relative group">Идея 
+    <div id="%D0%B8%D0%B4%D0%B5%D1%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%D0%B8%D0%B4%D0%B5%D1%8F" aria-label="Якорь">#</a>
+    </span>        
+    
+</h2>
+<p>Задумка следующая. В bitrix24 есть механизм PushAndPull (по сути это обычный websocket). Он используется для работы мессенджера, обновления данных в карточках &ldquo;на лету&rdquo; и обмена с 1с &ldquo;в режиме реального времени&rdquo;.</p>
+<p>Касательно 1с - это скорее ухищрение, к которому прибегли из-за того, что не каждую 1с есть возможность открыть наружу (да и не все хотят). Поэтому происходит следующее:</p>
+<p>В качестве токена доступа мы вводим refresh_token (тот код что просит ввести обмен 1с)
+По этому токену 1с получает данные домена (обращаясь к серверу авторизации битрикс)
+По полученным авторизационным данным - получаем параметры подключения к веб-сокету
+Слушаем сообщения в реальном времени
+Так вот, что если, проделать тот же путь что и 1с, но в конечном итоге слушать не события битрикса для их обновления, а например, управлять устройствами умного дома?</p>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Повторюсь. Идея бредовая. Не делайте умный дом на битрикс24. Пожалуйста.</span>
+</div>
+
+
+
+<h2 class="relative group">Нам понадобится: 
+    <div id="%D0%BD%D0%B0%D0%BC-%D0%BF%D0%BE%D0%BD%D0%B0%D0%B4%D0%BE%D0%B1%D0%B8%D1%82%D1%81%D1%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%D0%BD%D0%B0%D0%BC-%D0%BF%D0%BE%D0%BD%D0%B0%D0%B4%D0%BE%D0%B1%D0%B8%D1%82%D1%81%D1%8F" aria-label="Якорь">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Модуль с wi-fi на борту. Я взял esp-8266 (просто потому что попался первым под руку)</li>
+<li>Реле (так же выбирал из того что было)</li>
+<li>Транзистор (не хватало мощности клацать напрямую реле, поэтому IRF-3205)</li>
+<li>Кнопка</li>
+<li>Клемма</li>
+<li>3 светодиода
+Всё это было собрано на макетной плате, в черновом виде, просто потому что изначально задумывалось как шалость.</li>
+</ul>
+<p>Приводить схему соединения всего этого не буду, по сути транзистор подключен к выводу D6, и управляет реле. Кнопка задумывалась как сброс настроек (для включения в режиме точки доступа). Остальное ниже - по коду.</p>
+
+
+<h2 class="relative group">Код 
+    <div id="%D0%BA%D0%BE%D0%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%D0%BA%D0%BE%D0%B4" aria-label="Якорь">#</a>
+    </span>        
+    
+</h2>
+<p>Функция setup инициализирует пины, устанавливает callBack-функции веб-сокета (их рассмотрим ниже) и пробует считать из энергонезависимой памяти данные подключения к wi-fi и битрикс 24. Если зажата кнопка (которую мы подключили на вывод D7) - то эти параметры игнорируются и стартует сервер.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ----- ТУТ был код инициализации пинов ------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">valueButton</span><span class="o">=</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN_PIN</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//установка callback функций
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">webSocketClient</span><span class="p">.</span><span class="n">onMessage</span><span class="p">(</span><span class="n">onMessageCallback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webSocketClient</span><span class="p">.</span><span class="n">onEvent</span><span class="p">(</span><span class="n">onEventsCallback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//по умолчанию реле выключено
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELE_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//храним в том же порядке ssid, pass, refresh, device
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ssid</span><span class="o">=</span><span class="n">readStringFromEEPROM</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">SSID_LENGTH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;ssid:</span><span class="se">\&#34;</span><span class="s">&#34;</span><span class="o">+</span><span class="n">ssid</span><span class="o">+</span><span class="s">&#34;</span><span class="se">\&#34;</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//Если кнопка не нажата и ssid заполнен 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">valueButton</span><span class="o">&amp;&amp;!</span><span class="n">ssid</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">password</span><span class="o">=</span><span class="n">readStringFromEEPROM</span><span class="p">(</span><span class="n">SSID_LENGTH</span><span class="p">,</span> <span class="n">PASS_LENGTH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">refresh_token</span><span class="o">=</span><span class="n">readStringFromEEPROM</span><span class="p">(</span><span class="n">PASS_LENGTH</span><span class="p">,</span> <span class="n">REFRESH_LENGTH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">deviceName</span><span class="o">=</span><span class="n">readStringFromEEPROM</span><span class="p">(</span><span class="n">REFRESH_LENGTH</span><span class="p">,</span> <span class="n">DEVICE_LENGTH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span><span class="c1">// Иначе - запускаем в режиме точки доступа
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">startServer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">serverStarted</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Главный цикл программы. Проверяем подключены ли мы к wi-fi, если нет - проверяем запущен ли контроллер в режиме точки доступа, если нет - пытаемся подключиться к wi-fi.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">webSocketClient</span><span class="p">.</span><span class="n">poll</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">serverStarted</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">server</span><span class="p">.</span><span class="n">handleClient</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tryConnectToWifi</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Так как при первом включении ssid будет пустым, сразу рассмотрим что из себя представляет функция startServer и handleClient:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">startServer</span><span class="p">(){</span><span class="c1">//Стандартная функция точки доступа из примеров
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Запуск собственной точки доступа (Access Point)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_AP</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WiFi</span><span class="p">.</span><span class="n">softAP</span><span class="p">(</span><span class="n">apSsid</span><span class="p">,</span> <span class="n">apPassword</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// Небольшая задержка для установки соединения
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="n">handleRoot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">handleRoot</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">method</span><span class="p">()</span><span class="o">==</span><span class="n">HTTP_POST</span><span class="p">){</span><span class="c1">//Если пост - сохраняем параметры, иначе - отдаём страничку настроек
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">handleSave</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sendPage</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sendPage</span><span class="p">(){</span><span class="c1">//Отправляет страничку в виде
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">html</span> <span class="o">=</span> <span class="s">&#34;&lt;html&gt;&lt;head&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;meta charset=&#39;utf-8&#39;&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39;&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;/head&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;body style=</span><span class="se">\&#34;</span><span class="s">background: #03a9f4; color: #fff; font-family: sans-serif;</span><span class="se">\&#34;</span><span class="s">&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//---------- Тут ещё десяток таких же красивых строк ----------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s">&#34;text/html&#34;</span><span class="p">,</span> <span class="n">html</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">handleSave</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssid</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&#34;ssid&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">password</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&#34;password&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&#34;refresh_token&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deviceName</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&#34;deviceName&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">writeStringToEEPROM</span><span class="p">(</span><span class="n">REFRESH_LENGTH</span><span class="p">,</span> <span class="n">deviceName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">html</span> <span class="o">=</span> <span class="s">&#34;&lt;html&gt;&lt;head&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;meta charset=&#39;utf-8&#39;&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39;&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;/head&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">+=</span> <span class="s">&#34;&lt;body&gt;Настройки сохранены&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s">&#34;text/plain&#34;</span><span class="p">,</span> <span class="n">html</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">serverStarted</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>После сохранения параметров микроконтроллер попробует подключиться к wi-fi. Функция  вцелом стандартная, так же взята из примеров работы с wi-fi модулем. С разницей лишь в том, что после
+10 секунд, если не получилось подключиться к wi-fi, снова стартует режим точки доступа для изменения настроек. Если подключиться удалось - обновляем refresh токен.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">tryConnectToWifi</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serverStarted</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Подключение к Wi-Fi...&#34;</span><span class="o">+</span><span class="sc">&#39; &#39;</span><span class="o">+</span><span class="n">ssid</span><span class="o">+</span><span class="sc">&#39; &#39;</span><span class="o">+</span><span class="n">password</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">startServer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">serverStarted</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Если подключились - сохраняем параметры wifi
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">writeStringToEEPROM</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ssid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writeStringToEEPROM</span><span class="p">(</span><span class="n">SSID_LENGTH</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Включаем первый светодиод
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED1_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Обновляем refresh_token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">refreshAndConnect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">refreshAndConnect</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ResultRefresh</span> <span class="n">result</span><span class="o">=</span><span class="n">refreshToken</span><span class="p">(</span><span class="n">refresh_token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">access_token</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="o">||</span><span class="n">result</span><span class="p">.</span><span class="n">refresh_token</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">startServer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">serverStarted</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">refresh_token</span><span class="o">=</span><span class="n">result</span><span class="p">.</span><span class="n">refresh_token</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writeStringToEEPROM</span><span class="p">(</span><span class="n">PASS_LENGTH</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">client_endpoint</span><span class="o">=</span><span class="n">result</span><span class="p">.</span><span class="n">client_endpoint</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">access_token</span><span class="o">=</span><span class="n">result</span><span class="p">.</span><span class="n">access_token</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SocketParams</span> <span class="n">socketParams</span><span class="o">=</span><span class="n">getSocketParams</span><span class="p">(</span><span class="n">client_endpoint</span><span class="p">,</span> <span class="n">access_token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">webSocketClient</span><span class="p">.</span><span class="n">setInsecure</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webSocketClient</span><span class="p">.</span><span class="n">ping</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webSocketClient</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">socketParams</span><span class="p">.</span><span class="n">server</span><span class="o">+</span><span class="s">&#34;?CHANNEL_ID=&#34;</span><span class="o">+</span><span class="n">socketParams</span><span class="p">.</span><span class="n">chanel</span><span class="o">+</span><span class="s">&#34;&amp;clientId=&#34;</span><span class="o">+</span><span class="n">getClientId</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Выше я не описываю refreshToken и getSocketParams, так как это типовые вызовы rest, но очень объёмные.
+refreshToken - делает обращение к <a href="https://oauth.bitrix.info/oauth/token/?grant_type=refresh_token"   target="_blank">
+    https://oauth.bitrix.info/oauth/token/?grant_type=refresh_token</a>
+getSocketParams - делает обращение к https://{ваш портал}//rest/pull.application.config.get</p>
+<p>И последнее - две callback функции.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">onMessageCallback</span><span class="p">(</span><span class="n">WebsocketsMessage</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">bodyRaw</span><span class="o">=</span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bodyRaw</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#34;#!NGINXNMS!#&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bodyRaw</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#34;#!NGINXNME!#&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">bodyRaw</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DynamicJsonDocument</span> <span class="n">doc</span><span class="p">(</span><span class="mi">2024</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DeserializationError</span> <span class="n">error</span> <span class="o">=</span> <span class="n">deserializeJson</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">bodyRaw</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Ошибка разбора JSON: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Доступ к значениям JSON
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">command</span><span class="o">=</span><span class="n">doc</span><span class="p">[</span><span class="s">&#34;text&#34;</span><span class="p">][</span><span class="s">&#34;command&#34;</span><span class="p">].</span><span class="n">as</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">command</span><span class="o">==</span><span class="s">&#34;esp&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">device</span><span class="o">=</span><span class="n">doc</span><span class="p">[</span><span class="s">&#34;text&#34;</span><span class="p">][</span><span class="s">&#34;params&#34;</span><span class="p">][</span><span class="s">&#34;device&#34;</span><span class="p">].</span><span class="n">as</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="o">==</span><span class="n">deviceName</span><span class="o">||</span><span class="n">deviceName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">value</span><span class="o">=</span><span class="n">doc</span><span class="p">[</span><span class="s">&#34;text&#34;</span><span class="p">][</span><span class="s">&#34;params&#34;</span><span class="p">][</span><span class="s">&#34;value&#34;</span><span class="p">].</span><span class="n">as</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="o">==</span><span class="s">&#34;1&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELE_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELE_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Message params: &#34;</span><span class="o">+</span><span class="n">command</span><span class="o">+</span><span class="s">&#34; device: &#34;</span><span class="o">+</span><span class="n">device</span><span class="o">+</span><span class="s">&#34; value: &#34;</span><span class="o">+</span><span class="n">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Input message&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED5_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED5_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">onEventsCallback</span><span class="p">(</span><span class="n">WebsocketsEvent</span> <span class="n">event</span><span class="p">,</span> <span class="n">String</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">WebsocketsEvent</span><span class="o">::</span><span class="n">ConnectionOpened</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED3_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Connnection Opened&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">WebsocketsEvent</span><span class="o">::</span><span class="n">ConnectionClosed</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">refreshAndConnect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">WebsocketsEvent</span><span class="o">::</span><span class="n">GotPing</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Got a Ping!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">WebsocketsEvent</span><span class="o">::</span><span class="n">GotPong</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Got a Pong!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>То есть при подключении загорается светодиод подключенный к D3.
+При получении сообщения отрабатывает функция, которая пробует разобрать json, и если команда и id устройства (в случае если их несколько) совпадает - переключить на значение value реле.</p>
+
+        </div>
+        
+        
+
+          
+            
+            
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Автор
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Muxaujl
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://t.me/mak2486"
+          target="_blank"
+          aria-label="Telegram"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+          
+
+          
+
+          
+          <div class="mb-10"></div>
+          
+
+        
+
+        
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://t.me/share/url?url=//localhost:1313/posts/bitrix-cloud-part-1/greeting/&amp;resubmit=true&amp;title=%d0%9e%d0%b1%d0%bb%d0%b0%d0%ba%d0%be%20%d0%bd%d0%b5%20%d0%bf%d1%80%d0%b8%d0%b3%d0%be%d0%b2%d0%be%d1%80%20%28%d1%87%d0%b0%d1%81%d1%82%d1%8c%201%29"
+      title=""
+      aria-label=""
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_posts\/bitrix-cloud-part-1\/greeting.md"
+        var oid_likes = "likes_posts\/bitrix-cloud-part-1\/greeting.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Пролистать наверх" title="Пролистать наверх">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+  <a rel="me" href="https://masto.ai/@blowfish"></a>
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Поиск"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Закрыть (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
