@@ -76,7 +76,7 @@ disableTextInHeader = false
   showWordCount = true
   sharingLinks = [ "telegram"]
   showZenMode = false
-  showComments = true
+  showComments = false
 
 [list]
   showHero = false
