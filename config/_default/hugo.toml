@@ -43,7 +43,7 @@ enableEmoji = true
 
 [services]
   [services.disqus]
-    shortname = 'mak2486-ru.disqus.com'
+    shortname = 'mak2486-ru'
 
 [related]
   threshold = 0
