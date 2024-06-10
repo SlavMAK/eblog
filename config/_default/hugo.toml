@@ -28,7 +28,7 @@ enableEmoji = true
   anchor = 'Center'
 
 [taxonomies]
-  tag = "Теги"
+  tag = "tags"
 #  category = "Категории"
 #  author = "Авторы"
 #  series = "series"
@@ -40,6 +40,10 @@ enableEmoji = true
 
 [outputs]
   home = ["HTML", "JSON"]
+
+[services]
+  [services.disqus]
+    shortname = 'mak2486-ru.disqus.com'
 
 [related]
   threshold = 0

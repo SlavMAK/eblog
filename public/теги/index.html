@@ -123,6 +123,29 @@
   <meta name="theme-color"/>
   
   
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyALbEUsJjOr7AgKNmFdFGwsSeqi7ltxgY4",
+      authDomain: "AIzaSyALbEUsJjOr7AgKNmFdFGwsSeqi7ltxgY4",
+      projectId: "eblog-5dc69",
+      storageBucket: "eblog-5dc69.appspot.com",
+      messagingSenderId: "1047775975340",
+      appId: "1:1047775975340:web:0c514acd25575c10e48c09",
+      measurementId: "G-Q9L819TW10"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
 </head>
 <body
   class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
