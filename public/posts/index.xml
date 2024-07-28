@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Посты on E-blog</title>
+    <title>Posts on E-blog</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Посты on E-blog</description>
+    <description>Recent content in Posts on E-blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     
-    <lastBuildDate>Mon, 03 Jun 2024 04:04:16 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jun 2024 18:02:22 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Assistant - ещё одна статья по установке</title>
+      <link>http://localhost:1313/posts/home-assistant-setup/</link>
+      <pubDate>Mon, 10 Jun 2024 18:02:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/home-assistant-setup/</guid>
+      <description>Disclaimer # Если вас задевает использование термина &amp;ldquo;умный дом&amp;rdquo; вместо &amp;ldquo;автоматизированный дом&amp;rdquo;, приготовьте лёд для своевременного устранения очагов возгорания.
+Введение # В интернетах и без меня в целом хватает инструкций по установке, и когда я начинал своё знакомство с Home Assistant (далее HA) - я собрал свою коллекцию шишек к которым приводили те или иные решения.</description>
+      
+    </item>
+    
     <item>
       <title>Bitrix24 - облако не приговор (часть 1)</title>
       <link>http://localhost:1313/posts/bitrix-cloud-part-1/</link>
@@ -17,6 +28,16 @@
       <description>Disclaimer # Описанное ниже, не является руководством к действию, не испытано на практике и по сути является лишь демонстрацией возможностей облачных порталов Bitrix24.
 Этот проект задумывался ещё когда порталы Bitrix24 с бесплатным тарифом позволяли использовать REST api.
 Идея # Задумка следующая. В bitrix24 есть механизм PushAndPull (по сути это обычный websocket).</description>
+      
+    </item>
+    
+    <item>
+      <title>Посты</title>
+      <link>http://localhost:1313/posts/mobile-ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/mobile-ssh/</guid>
+      <description></description>
       
     </item>
     
