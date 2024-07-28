@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Автоматизированный Дом on E-blog</title>
+    <link>http://localhost:1313/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/</link>
+    <description>Recent content in Автоматизированный Дом on E-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    
+    <lastBuildDate>Mon, 10 Jun 2024 18:02:22 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Assistant - ещё одна статья по установке</title>
+      <link>http://localhost:1313/posts/home-assistant-setup/</link>
+      <pubDate>Mon, 10 Jun 2024 18:02:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/home-assistant-setup/</guid>
+      <description>Disclaimer # Если вас задевает использование термина &amp;ldquo;умный дом&amp;rdquo; вместо &amp;ldquo;автоматизированный дом&amp;rdquo;, приготовьте лёд для своевременного устранения очагов возгорания.
+Введение # В интернетах и без меня в целом хватает инструкций по установке, и когда я начинал своё знакомство с Home Assistant (далее HA) - я собрал свою коллекцию шишек к которым приводили те или иные решения.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
